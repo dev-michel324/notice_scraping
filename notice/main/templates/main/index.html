@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}Pagina inicial{% endblock %}
 {% block content %}
-    {% for n in news %}
-        
-        <div class="col-3" style="float: right;">
+  <h3>Technology</h3>
+  <hr>
+    {% for n in technology %}
+        <div style="display: inline-block; width: 18%;">
         <div class="card">
             <img class="card-img-top" src="{{n.image}}" alt="Card image cap">
             <div class="card-body">
@@ -13,7 +14,51 @@
             </div>
           </div>
         </div>
-        
+    {% endfor %}
+    <br>
+    <h3>Science</h3>
+    <hr>
+    {% for n in science %}
+        <div style="display: inline-block; width: 18%;">
+        <div class="card">
+            <img class="card-img-top" src="{{n.image}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{n.title}}</h5>
+              <p class="card-text">{{n.description}}</p>
+              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+    <br>
+    <h3>Economy</h3>
+    <hr>
+    {% for n in economy %}
+        <div style="display: inline-block; width: 18%;">
+        <div class="card">
+            <img class="card-img-top" src="{{n.image}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{n.title}}</h5>
+              <p class="card-text">{{n.description}}</p>
+              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+    <br>
+    <h3>Health</h3>
+    <hr>
+    {% for n in health %}
+        <div style="display: inline-block; width: 18%;">
+        <div class="card">
+            <img class="card-img-top" src="{{n.image}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{n.title}}</h5>
+              <p class="card-text">{{n.description}}</p>
+              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            </div>
+          </div>
+        </div>
     {% endfor %}
 
 {% endblock %}
