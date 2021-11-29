@@ -75,12 +75,27 @@ WSGI_APPLICATION = 'notice.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# COMMANDS:
+# CREATE ROLE notice LOGIN ENCRYPTED PASSWORD 'notice2021' NOINHERIT VALID UNTIL 'infinity';
+# CREATE DATABASE interacao WITH ENCODING='UTF8' OWNER=interacao;
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+	"default": {
+	"ENGINE": "django.db.backends.postgresql",
+	"NAME": "news",
+	"USER": "notice",
+	"PASSWORD": "notice2021",
+	"HOST": "127.0.0.1",
+	"PORT": 5432,
+	}
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation

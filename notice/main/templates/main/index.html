@@ -1,64 +1,65 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
-  <h3>Technology</h3>
-  <hr>
-    {% for n in technology %}
-        <div style="display: inline-block; width: 18%;">
-        <div class="card">
-            <img class="card-img-top" src="{{n.image}}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">{{n.title}}</h5>
-              <p class="card-text">{{n.description}}</p>
-              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-            </div>
-          </div>
-        </div>
-    {% endfor %}
-    <br>
-    <h3>Science</h3>
-    <hr>
-    {% for n in science %}
-        <div style="display: inline-block; width: 18%;">
-        <div class="card">
-            <img class="card-img-top" src="{{n.image}}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">{{n.title}}</h5>
-              <p class="card-text">{{n.description}}</p>
-              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-            </div>
-          </div>
-        </div>
-    {% endfor %}
-    <br>
-    <h3>Economy</h3>
-    <hr>
-    {% for n in economy %}
-        <div style="display: inline-block; width: 18%;">
-        <div class="card">
-            <img class="card-img-top" src="{{n.image}}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">{{n.title}}</h5>
-              <p class="card-text">{{n.description}}</p>
-              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-            </div>
-          </div>
-        </div>
-    {% endfor %}
-    <br>
-    <h3>Health</h3>
-    <hr>
-    {% for n in health %}
-        <div style="display: inline-block; width: 18%;">
-        <div class="card">
-            <img class="card-img-top" src="{{n.image}}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">{{n.title}}</h5>
-              <p class="card-text">{{n.description}}</p>
-              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-            </div>
-          </div>
-        </div>
-    {% endfor %}
 
+<div class="container">
+<a href="/category/1"><h2>Technology - {{technology.count}} news</h2></a>
+<hr>
+
+  <div class="row">
+  {% for n in technology %}
+      <div class="card col-lg-3">
+          <img class="card-img-top" src="{{n.image}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{n.title}}</h5>
+            <p class="card-text">{{n.description|truncatechars:150}}</p>
+            <div style="text-align: center;"><a href="https://www.bbc.com{{n.link}}" target="_blank" class="btn btn-primary">Ler mais</a></div>
+          </div>
+        </div>
+  {% endfor %}
+</div>
+
+<a href="/category/2"><h2>Science - {{science.count}} news</h2></a>
+<hr>
+<div class="row">
+  {% for n in science %}
+      <div class="card col-sm-3">
+          <img class="card-img-top" src="{{n.image}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{n.title}}</h5>
+            <p class="card-text">{{n.description|truncatechars:150}}</p>
+            <div style="text-align: center;"><a href="https://www.bbc.com{{n.link}}" target="_blank" class="btn btn-primary">Ler mais</a></div>
+          </div>
+        </div>
+  {% endfor %}
+</div>
+<a href="/category/3"><h2>Economy - {{economy.count}} news</h2></a>
+<hr>
+<div class="row">
+  {% for n in economy %}
+      <div class="card col-sm-3">
+          <img class="card-img-top" src="{{n.image}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{n.title}}</h5>
+            <p class="card-text">{{n.description|truncatechars:150}}</p>
+            <div style="text-align: center;"><a href="https://www.bbc.com{{n.link}}" target="_blank" class="btn btn-primary">Ler mais</a></div>
+          </div>
+        </div>
+  {% endfor %}
+</div>
+<a href="/category/4"><h2>Health - {{health.count}} news</h2></a>
+<hr>
+<div class="row">
+  {% for n in technology %}
+      <div class="card col-sm-3">
+          <img class="card-img-top" src="{{n.image}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{n.title}}</h5>
+            <p class="card-text">{{n.description|truncatechars:150}}</p>
+            <div style="text-align: center;"><a href="https://www.bbc.com{{n.link}}" target="_blank" class="btn btn-primary">Ler mais</a></div>
+          </div>
+        </div>
+  {% endfor %}
+</div>
+</div>
 {% endblock %}

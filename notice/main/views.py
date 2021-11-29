@@ -37,6 +37,11 @@ class get_news():
         for i in image:
             image_link.append(i['src'])
 
+        link_new = soup.find_all('a', class_='qa-heading-link')
+        link = []
+        for i in link_new:
+            link.append(i['href'])
+
         for i in range(len(titulo)):
             exist = Notice.objects.filter(title=titulo[i]).exists()
             if not exist:
@@ -46,6 +51,7 @@ class get_news():
                     description=descricao[i],
                     date_post=data[i],
                     image=image_link[i],
+                    link=link[i],
                 )
                 new.save()
 
@@ -54,10 +60,10 @@ def index(request):
     for i in range(4):
         news.get_all(i+1)
 
-    technology = Notice.objects.filter(category='technology').order_by('-date')
-    science = Notice.objects.filter(category='science').order_by('-date')
-    economy = Notice.objects.filter(category='economy').order_by('-date')
-    health = Notice.objects.filter(category='health').order_by('-date')
+    technology = Notice.objects.filter(category='technology').order_by('-date')[:5]
+    science = Notice.objects.filter(category='science').order_by('-date')[:5]
+    economy = Notice.objects.filter(category='economy').order_by('-date')[:5]
+    health = Notice.objects.filter(category='health').order_by('-date')[:5]
 
     return render(request, 'main/index.html', {
         'technology': technology,

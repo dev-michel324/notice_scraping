@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
 {% block title %}{{category|title}}{% endblock %}
 {% block content %}
-<h3>{{category|title}}</h3>
+<div class="container">
+<h3>{{category|title}} - {{news.count}} news</h3>
   <hr>
+    <div class="row">
     {% for n in news %}
-        <div style="display: inline-block; width: 18%;">
-        <div class="card">
+        <div class="card col-sm-3">
             <img class="card-img-top" src="{{n.image}}" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">{{n.title}}</h5>
-              <p class="card-text">{{n.description}}</p>
-              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              <p class="card-text">{{n.description|truncatechars:150}}</p>
+              <div style="text-align: center;"><a href="https://www.bbc.com{{n.link}}" target="_blank" class="btn btn-primary">Ler mais</a></div>
             </div>
           </div>
-        </div>
     {% endfor %}
-
+  </div>
+</div>
 {% endblock %}
