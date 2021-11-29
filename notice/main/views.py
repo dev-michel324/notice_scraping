@@ -38,7 +38,7 @@ class get_news():
             image_link.append(i['src'])
 
         for i in range(len(titulo)):
-            exist = Notice.objects.filter(title=titulo[i]).exists
+            exist = Notice.objects.filter(title=titulo[i]).exists()
             if not exist:
                 new = Notice(
                     category=self.categorys[category],
@@ -65,3 +65,11 @@ def index(request):
         'economy': economy,
         'health': health,
     })
+
+def page_per_category(request, category: int):
+    categorys = {1: 'technology', 2: 'science', 3: 'economy', 4: 'health'}
+    update = get_news()
+    update.get_all(category=category)
+    news = Notice.objects.filter(category=categorys[category]).order_by('-date')
+
+    return render(request, 'main/category.html', {'news': news, 'category': categorys[category]})
